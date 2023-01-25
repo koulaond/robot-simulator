@@ -51,11 +51,11 @@ public class RobotService {
     private Robot buildRobot(PlaceCommandValue placeCommandValue) {
         return Robot.builder()
                 .position(Position.builder()
-                        .xPos(placeCommandValue.getX())
-                        .yPos(placeCommandValue.getY())
+                        .xPos(placeCommandValue.x())
+                        .yPos(placeCommandValue.y())
                         .build())
                 .order(placedRobots.size())
-                .direction(placeCommandValue.getDirection())
+                .direction(placeCommandValue.direction())
                 .build();
     }
 }
