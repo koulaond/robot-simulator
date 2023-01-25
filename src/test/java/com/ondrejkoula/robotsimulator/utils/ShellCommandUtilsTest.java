@@ -9,7 +9,6 @@ class ShellCommandUtilsTest {
 
     @Test
     void parsePlaceCommandValue() {
-
         PlaceCommandValue placeCommandValue = ShellCommandUtils.parsePlaceCommandValue("0,0,WEST");
 
         Assertions.assertEquals(PlaceCommandValue
@@ -18,5 +17,10 @@ class ShellCommandUtilsTest {
                         .y(0)
                         .direction(WestDirection.getInstance()).build(),
                 placeCommandValue);
+    }
+
+    @Test
+    void parsePlaceCommandValue_invalidCommand() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> ShellCommandUtils.parsePlaceCommandValue("0,0"));
     }
 }

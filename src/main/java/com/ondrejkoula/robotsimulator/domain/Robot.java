@@ -21,13 +21,18 @@ public class Robot {
         this.direction = direction;
         this.order = order;
         this.playground = Playground.getInstance();
-        playground.validatePosition(position);
+        if (!playground.validatePosition(position)) {
+            throw new IllegalStateException("Cannot place robot out of the table");
+        }
     }
 
     public void move() {
         Position nextPosition = direction.nextStep(position);
-        playground.validatePosition(nextPosition);
-        this.position = nextPosition;
+        if (playground.validatePosition(nextPosition)) {
+            this.position = nextPosition;
+        }
+
+
     }
 
     public void turnLeft() {
