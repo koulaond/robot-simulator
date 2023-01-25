@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class RobotService {
     
-    private Robot robot;
+    private Robot currentRobot;
     
     private final List<Robot> placedRobots;
     
@@ -23,29 +23,29 @@ public class RobotService {
     public void placeRobot(PlaceCommandValue placeCommandValue) {
         Robot newRobot = buildRobot(placeCommandValue);
         if (placedRobots.isEmpty()) {
-            this.robot = newRobot;
+            this.currentRobot = newRobot;
         }
         placedRobots.add(newRobot);
     }
 
     public void moveRobot() {
-        robot.move();
+        currentRobot.move();
     }
     
     public void turnRobotLeft() {
-        robot.turnLeft();
+        currentRobot.turnLeft();
     }
 
     public void turnRobotRight() {
-        robot.turnRight();
+        currentRobot.turnRight();
     }
 
     public Report report() {
-        return Report.buildReportMessage(robot.getPosition(), robot.getDirection());
+        return Report.buildReportMessage(currentRobot.getPosition(), currentRobot.getDirection());
     }
 
     public void setActualRobot(Integer robotNum) {
-        this.robot = placedRobots.get(robotNum);
+        this.currentRobot = placedRobots.get(robotNum);
     }
 
     private Robot buildRobot(PlaceCommandValue placeCommandValue) {
