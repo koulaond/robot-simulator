@@ -2,6 +2,7 @@ package com.ondrejkoula.robotsimulator.service;
 
 import com.ondrejkoula.robotsimulator.domain.PlaceCommandValue;
 import com.ondrejkoula.robotsimulator.domain.Position;
+import com.ondrejkoula.robotsimulator.domain.Report;
 import com.ondrejkoula.robotsimulator.domain.Robot;
 import org.springframework.stereotype.Service;
 
@@ -32,7 +33,7 @@ public class RobotService {
         robot.turnRight();
     }
 
-    public void report() {
-
+    public Report report() {
+        return Report.buildReportMessage(robot.getPosition(), robot.getDirection());
     }
 }

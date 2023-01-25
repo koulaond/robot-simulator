@@ -4,7 +4,6 @@ import com.ondrejkoula.robotsimulator.domain.direction.Direction;
 import lombok.Builder;
 import lombok.Getter;
 
-@Builder
 @Getter
 public class Robot {
 
@@ -14,7 +13,10 @@ public class Robot {
 
     private Direction direction;
 
-    public Robot() {
+    @Builder
+    public Robot(Position position, Direction direction) {
+        this.position = position;
+        this.direction = direction;
         this.playground = Playground.getInstance();
     }
 

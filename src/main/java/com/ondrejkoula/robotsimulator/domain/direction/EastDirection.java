@@ -24,6 +24,11 @@ public class EastDirection implements Direction {
         return SouthDirection.getInstance();
     }
 
+    @Override
+    public String getCommandValue() {
+        return "EAST";
+    }
+
     public static EastDirection getInstance() {
         if (instance == null) {
             instance = new EastDirection();

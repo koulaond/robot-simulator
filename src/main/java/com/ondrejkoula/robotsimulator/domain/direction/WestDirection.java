@@ -23,6 +23,11 @@ public class WestDirection implements Direction {
     public Direction turnRight() {
         return NorthDirection.getInstance();
     }
+
+    @Override
+    public String getCommandValue() {
+        return "WEST";
+    }
     
     public static WestDirection getInstance() {
         if (instance == null) {

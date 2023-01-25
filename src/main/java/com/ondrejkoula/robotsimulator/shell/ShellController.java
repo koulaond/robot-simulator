@@ -25,21 +25,21 @@ public class ShellController {
 
     @ShellMethod(key = "MOVE")
     public void move() {
-       
+       robotService.moveRobot();
     }
 
     @ShellMethod(key = "LEFT")
     public void left() {
-       
+       robotService.turnRobotLeft();
     }
 
     @ShellMethod(key = "RIGHT")
     public void right() {
-      
+      robotService.turnRobotRight();
     }
 
     @ShellMethod(key = "REPORT")
-    public void report() {
-       
+    public String report() {
+       return robotService.report().reportMessage();
     }
 }
