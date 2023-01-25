@@ -20,7 +20,9 @@ public class Playground {
                 || position.getYPos() < 0
                 || position.getXPos() >= width
                 || position.getYPos() >= height) {
-            throw new IllegalStateException(format("This position %s:%s is not allowed"));
+       
+            throw new IllegalStateException(format("This position %s:%s is not allowed", 
+                    position.getXPos(), position.getYPos()));
         }
     }
 
