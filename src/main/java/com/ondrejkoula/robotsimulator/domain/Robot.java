@@ -13,11 +13,15 @@ public class Robot {
 
     private Direction direction;
 
+    private final Integer order;
+
     @Builder
-    public Robot(Position position, Direction direction) {
+    public Robot(Position position, Direction direction, Integer order) {
         this.position = position;
         this.direction = direction;
+        this.order = order;
         this.playground = Playground.getInstance();
+        playground.validatePosition(position);
     }
 
     public void move() {

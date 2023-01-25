@@ -37,6 +37,11 @@ public class ShellController {
     public void right() {
       robotService.turnRobotRight();
     }
+    
+    @ShellMethod(key = "ROBOT")
+    public void setActualRobot(Integer robotNum) {
+        robotService.setActualRobot(robotNum);
+    }
 
     @ShellMethod(key = "REPORT")
     public String report() {

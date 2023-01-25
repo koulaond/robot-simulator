@@ -9,8 +9,8 @@ public class WestDirection implements Direction {
     @Override
     public Position nextStep(Position current) {
         return Position.builder()
-                .xPos(current.getXPos())
-                .yPos(current.getYPos() - 1)
+                .xPos(current.getXPos() - 1)
+                .yPos(current.getYPos())
                 .build();
     }
 
