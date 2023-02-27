@@ -25,19 +25,19 @@ public class ShellController {
 
     @ShellMethod(key = "MOVE")
     public void move() {
-       robotService.moveRobot();
+        robotService.moveRobot();
     }
 
     @ShellMethod(key = "LEFT")
     public void left() {
-       robotService.turnRobotLeft();
+        robotService.turnRobotLeft();
     }
 
     @ShellMethod(key = "RIGHT")
     public void right() {
-      robotService.turnRobotRight();
+        robotService.turnRobotRight();
     }
-    
+
     @ShellMethod(key = "ROBOT")
     public void setActualRobot(Integer robotNum) {
         robotService.setActualRobot(robotNum);
@@ -45,6 +45,28 @@ public class ShellController {
 
     @ShellMethod(key = "REPORT")
     public String report() {
-       return robotService.report().reportMessage();
+        return robotService.report().reportMessage();
     }
+
+
+    @ShellMethod(key = "WALK")
+    public void walk() {
+        robotService.walk();
+    }
+
+    @ShellMethod(key = "RUN")
+    public void run() {
+        robotService.run();
+    }
+
+    @ShellMethod("STRAFELEFT")
+    public void strafeLeft() {
+        robotService.strafeLeft();
+    }
+
+    @ShellMethod("STRAFERIGHT")
+    public void strafeRight() {
+        robotService.strafeRight();
+    }
+
 }

@@ -11,11 +11,11 @@ import java.util.List;
 
 @Service
 public class RobotService {
-    
+
     private Robot currentRobot;
-    
+
     private final List<Robot> placedRobots;
-    
+
     public RobotService() {
         placedRobots = new ArrayList<>();
     }
@@ -31,7 +31,7 @@ public class RobotService {
     public void moveRobot() {
         currentRobot.move();
     }
-    
+
     public void turnRobotLeft() {
         currentRobot.turnLeft();
     }
@@ -41,7 +41,7 @@ public class RobotService {
     }
 
     public Report report() {
-        return Report.buildReportMessage(currentRobot.getPosition(), currentRobot.getDirection());
+        return Report.buildReportMessage(currentRobot);
     }
 
     public void setActualRobot(Integer robotNum) {
@@ -57,5 +57,21 @@ public class RobotService {
                 .order(placedRobots.size())
                 .direction(placeCommandValue.direction())
                 .build();
+    }
+
+    public void walk() {
+        this.currentRobot.setWalkSpeed();
+    }
+
+    public void run() {
+        this.currentRobot.setRunSpeed();
+    }
+
+    public void strafeLeft() {
+        this.currentRobot.strafeLeft();
+    }
+
+    public void strafeRight() {
+        this.currentRobot.strafeRight();
     }
 }
